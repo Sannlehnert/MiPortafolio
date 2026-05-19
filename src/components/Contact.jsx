@@ -49,41 +49,38 @@ const Contact = ({ t, language }) => {
   };
 
   return (
-    <section id="contact" className="py-20 md:py-28 bg-bg-secondary/30 dark:bg-[#1A261F]/20">
+    <section id="contact" className="py-20 md:py-28">
       <div className="section-container">
         <h2 className="section-title">{t.contact.title}</h2>
-        
-        <div className="grid lg:grid-cols-2 gap-12">
-          <div>
-            <p className="text-text-secondary dark:text-[#94A3B8] text-lg mb-8 pl-6 border-l-4 border-accent dark:border-[#31C48D]">
-              {t.contact.text}
-            </p>
-            
-            <div className="space-y-4">
-              <div className="glass-card p-5 flex items-center gap-4 hover:translate-x-2 transition-transform">
-                <div className="w-12 h-12 rounded-full bg-accent/10 dark:bg-[#31C48D]/10 text-accent dark:text-[#31C48D] flex items-center justify-center text-xl">
-                  <FaEnvelope />
-                </div>
-                <div>
-                  <h3 className="font-heading font-semibold text-text-primary dark:text-[#E5FAEF]">{t.contact.email}</h3>
-                  <a href="mailto:santiagolehnert2016@gmail.com" className="text-text-secondary dark:text-[#94A3B8] hover:text-accent dark:hover:text-[#31C48D] transition-colors">
-                    santiagolehnert2016@gmail.com
-                  </a>
-                </div>
-              </div>
-              
-              <div className="glass-card p-5 flex items-center gap-4 hover:translate-x-2 transition-transform">
-                <div className="w-12 h-12 rounded-full bg-accent/10 dark:bg-[#31C48D]/10 text-accent dark:text-[#31C48D] flex items-center justify-center text-xl">
-                  <FaMapMarkerAlt />
-                </div>
-                <div>
-                  <h3 className="font-heading font-semibold text-text-primary dark:text-[#E5FAEF]">{t.contact.location}</h3>
-                  <span className="text-text-secondary dark:text-[#94A3B8]">Neuquén Capital, Argentina</span>
-                </div>
-              </div>
+
+        <div className="max-w-2xl mx-auto">
+          <p className="text-text-secondary dark:text-[#94A3B8] text-lg mb-10 text-center">
+            {t.contact.text}
+          </p>
+
+          {/* Tarjetas de contacto */}
+          <div className="grid md:grid-cols-2 gap-4 mb-10">
+            {/* Email clickeable */}
+            <a
+              href="mailto:santiagolehnert2016@gmail.com"
+              className="glass-card p-4 flex items-center gap-3 hover:-translate-y-1 transition-transform group"
+            >
+              <FaEnvelope className="text-accent dark:text-[#31C48D] text-xl shrink-0" />
+              <span className="text-text-primary dark:text-[#E5FAEF] font-medium group-hover:underline">
+                santiagolehnert2016@gmail.com
+              </span>
+            </a>
+
+            {/* Ubicación (no clickeable) */}
+            <div className="glass-card p-4 flex items-center gap-3">
+              <FaMapMarkerAlt className="text-accent dark:text-[#31C48D] text-xl shrink-0" />
+              <span className="text-text-primary dark:text-[#E5FAEF] font-medium">
+                Neuquén Capital, Argentina
+              </span>
             </div>
           </div>
-          
+
+          {/* Formulario */}
           <form onSubmit={handleSubmit} className="glass-card p-6 md:p-8 space-y-5" noValidate>
             <div>
               <label htmlFor="name" className="block text-text-primary dark:text-[#E5FAEF] font-medium mb-2">
@@ -101,7 +98,7 @@ const Contact = ({ t, language }) => {
               />
               {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
             </div>
-            
+
             <div>
               <label htmlFor="email" className="block text-text-primary dark:text-[#E5FAEF] font-medium mb-2">
                 {t.contact.email} <span className="text-accent dark:text-[#31C48D]">*</span>
@@ -118,7 +115,7 @@ const Contact = ({ t, language }) => {
               />
               {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
             </div>
-            
+
             <div>
               <label htmlFor="message" className="block text-text-primary dark:text-[#E5FAEF] font-medium mb-2">
                 {t.contact.message} <span className="text-accent dark:text-[#31C48D]">*</span>
@@ -135,9 +132,9 @@ const Contact = ({ t, language }) => {
               ></textarea>
               {errors.message && <p className="text-red-500 text-sm mt-1">{errors.message}</p>}
             </div>
-            
-            <button 
-              type="submit" 
+
+            <button
+              type="submit"
               disabled={isSubmitting}
               className="btn-primary w-full group"
             >
@@ -148,12 +145,16 @@ const Contact = ({ t, language }) => {
                 </>
               )}
             </button>
-            
+
             {submitStatus === 'success' && (
-              <p className="text-accent dark:text-[#31C48D] text-center font-medium p-3 bg-accent/10 dark:bg-[#31C48D]/10 rounded-lg">{t.contact.success}</p>
+              <p className="text-accent dark:text-[#31C48D] text-center font-medium p-3 bg-accent/10 dark:bg-[#31C48D]/10 rounded-lg">
+                {t.contact.success}
+              </p>
             )}
             {submitStatus === 'error' && (
-              <p className="text-red-500 text-center font-medium p-3 bg-red-500/10 rounded-lg">{t.contact.error}</p>
+              <p className="text-red-500 text-center font-medium p-3 bg-red-500/10 rounded-lg">
+                {t.contact.error}
+              </p>
             )}
           </form>
         </div>

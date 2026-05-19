@@ -129,7 +129,7 @@ const Header = ({ darkMode, toggleDarkMode, toggleLanguage, language, activeSect
               onClick={() => { toggleLanguage(); closeMenu(); }}
               className="w-full py-3 px-4 rounded-lg bg-white/60 dark:bg-[#1A261F]/60 border border-border-light dark:border-[#2A3A2F] text-text-primary dark:text-[#E5FAEF] hover:bg-accent dark:hover:bg-[#31C48D] hover:text-white transition-all duration-300 font-medium"
             >
-              {language === 'es' ? '🌐 English' : '🌐 Español'}
+              {language === 'es' ? 'English' : 'Español'}
             </button>
             <button
               onClick={() => { toggleDarkMode(); closeMenu(); }}

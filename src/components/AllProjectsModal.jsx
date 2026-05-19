@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { FaGithub, FaExternalLinkAlt, FaTimes, FaPlay, FaPause } from 'react-icons/fa';
 
-const AllProjectsModal = ({ projects, isOpen, onClose, language }) => {
+const AllProjectsModal = ({ projects, isOpen, onClose, language, t }) => {
   const [selectedProject, setSelectedProject] = useState(null);
   const [isPlaying, setIsPlaying] = useState(true);
   const videoRef = useRef(null);
@@ -45,16 +45,16 @@ const AllProjectsModal = ({ projects, isOpen, onClose, language }) => {
 
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
-      <div 
+      <div
         className="absolute inset-0 bg-black/80 backdrop-blur-md"
         onClick={handleOverlayClick}
       />
-      
-      <div 
+
+      <div
         ref={modalRef}
         className="relative w-full max-w-6xl max-h-[90vh] bg-bg-primary dark:bg-[#121C16] rounded-2xl shadow-2xl border border-border-light dark:border-[#2A3A2F] overflow-y-auto"
       >
-        <button 
+        <button
           onClick={onClose}
           className="absolute top-4 right-4 w-10 h-10 flex items-center justify-center rounded-full bg-white/20 dark:bg-black/20 backdrop-blur-sm text-text-primary dark:text-white hover:bg-accent dark:hover:bg-[#31C48D] transition-colors z-10"
           aria-label="Cerrar"
@@ -68,16 +68,16 @@ const AllProjectsModal = ({ projects, isOpen, onClose, language }) => {
           </h2>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
-            {projects.map(project => {
+            {projects.map((project) => {
               const title = getLocalized(project.title);
               const description = getLocalized(project.description);
               return (
-                <div 
+                <div
                   key={project.id}
                   onClick={() => setSelectedProject(project)}
                   className={`p-4 rounded-xl border cursor-pointer transition-all ${
-                    selectedProject?.id === project.id 
-                      ? 'border-accent dark:border-[#31C48D] bg-accent/5 dark:bg-[#31C48D]/5 shadow-lg' 
+                    selectedProject?.id === project.id
+                      ? 'border-accent dark:border-[#31C48D] bg-accent/5 dark:bg-[#31C48D]/5 shadow-lg'
                       : 'border-border-light dark:border-[#2A3A2F] hover:border-accent/50 dark:hover:border-[#31C48D]/50'
                   }`}
                 >
@@ -93,9 +93,9 @@ const AllProjectsModal = ({ projects, isOpen, onClose, language }) => {
                   <h3 className="font-heading font-bold text-text-primary dark:text-[#E5FAEF] mb-1">{title}</h3>
                   <p className="text-text-secondary dark:text-[#94A3B8] text-sm line-clamp-2">{description}</p>
                   <div className="flex flex-wrap gap-1 mt-2">
-                    {project.tags.slice(0, 3).map((tag, i) => (
+                    {project.technologies.slice(0, 3).map((tech, i) => (
                       <span key={i} className="text-xs bg-accent/10 dark:bg-[#31C48D]/10 text-accent dark:text-[#31C48D] px-2 py-0.5 rounded-full">
-                        {tag}
+                        {tech}
                       </span>
                     ))}
                   </div>
@@ -126,15 +126,15 @@ const AllProjectsModal = ({ projects, isOpen, onClose, language }) => {
                 <div className="relative rounded-xl overflow-hidden bg-black/20">
                   {selectedProject.video ? (
                     <div className="relative">
-                      <video 
+                      <video
                         ref={videoRef}
-                        src={selectedProject.video} 
+                        src={selectedProject.video}
                         loop
                         muted
                         playsInline
                         className="w-full h-auto"
                       />
-                      <button 
+                      <button
                         onClick={() => setIsPlaying(!isPlaying)}
                         className="absolute bottom-4 right-4 w-10 h-10 rounded-full bg-black/60 backdrop-blur-sm text-white flex items-center justify-center hover:bg-accent dark:hover:bg-[#31C48D] transition-colors"
                       >
@@ -142,9 +142,9 @@ const AllProjectsModal = ({ projects, isOpen, onClose, language }) => {
                       </button>
                     </div>
                   ) : (
-                    <img 
-                      src={selectedProject.image} 
-                      alt={getLocalized(selectedProject.title)} 
+                    <img
+                      src={selectedProject.image}
+                      alt={getLocalized(selectedProject.title)}
                       className="w-full h-auto"
                       loading="lazy"
                     />
@@ -154,6 +154,23 @@ const AllProjectsModal = ({ projects, isOpen, onClose, language }) => {
                   <p className="text-text-secondary dark:text-[#94A3B8]">
                     {getLocalized(selectedProject.detailedDescription) || getLocalized(selectedProject.description)}
                   </p>
+
+                  {selectedProject.features?.length > 0 && (
+                    <div>
+                      <h4 className="font-heading font-semibold text-text-primary dark:text-[#E5FAEF] mb-2">
+                        {language === 'es' ? 'Funcionalidades' : 'Features'}
+                      </h4>
+                      <ul className="space-y-1">
+                        {selectedProject.features.map((feat, i) => (
+                          <li key={i} className="flex items-start gap-2 text-sm text-text-secondary dark:text-[#94A3B8]">
+                            <span className="text-accent dark:text-[#31C48D] mt-1">▹</span>
+                            {t?.projects?.features?.[feat] || feat}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+
                   <div>
                     <h4 className="font-heading font-semibold text-text-primary dark:text-[#E5FAEF] mb-2">
                       {language === 'es' ? 'Tecnologías' : 'Technologies'}

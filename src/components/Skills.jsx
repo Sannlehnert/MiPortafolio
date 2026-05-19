@@ -1,50 +1,62 @@
 import React from 'react';
-import { FaLaptopCode, FaServer, FaTools } from 'react-icons/fa';
+import { FaReact, FaNodeJs, FaGitAlt, FaFigma, FaDatabase } from 'react-icons/fa';
+import { SiJavascript, SiTailwindcss, SiExpress, SiMysql, SiPostman, SiVite, SiCss3, SiHtml5, SiGithub, SiApifox } from 'react-icons/si';
 
 const Skills = ({ t }) => {
-  const skills = [
+  const skillCategories = [
     {
       title: t.skills.frontend,
-      description: t.skills.frontendDesc,
-      icon: FaLaptopCode
+      items: [
+        { name: 'React', icon: FaReact },
+        { name: 'JavaScript', icon: SiJavascript },
+        { name: 'HTML', icon: SiHtml5 },
+        { name: 'CSS', icon: SiCss3 },
+        { name: 'Tailwind', icon: SiTailwindcss },
+        { name: 'Vite', icon: SiVite }
+      ]
     },
     {
       title: t.skills.backend,
-      description: t.skills.backendDesc,
-      icon: FaServer
+      items: [
+        { name: 'Node.js', icon: FaNodeJs },
+        { name: 'Express', icon: SiExpress },
+        { name: 'MySQL', icon: SiMysql }
+      ]
     },
     {
       title: t.skills.tools,
-      description: t.skills.toolsDesc,
-      icon: FaTools
+      items: [
+        { name: 'Git', icon: FaGitAlt },
+        { name: 'GitHub', icon: SiGithub },
+        { name: 'Postman', icon: SiPostman }
+      ]
     }
   ];
 
   return (
-    <section id="skills" className="py-20 md:py-28 bg-bg-secondary/50 dark:bg-[#1A261F]/30">
+    <section id="skills" className="py-20 md:py-28 bg-bg-secondary/30 dark:bg-[#1A261F]/20">
       <div className="section-container">
         <h2 className="section-title">{t.skills.title}</h2>
         
         <div className="grid md:grid-cols-3 gap-8">
-          {skills.map((skill, index) => {
-            const Icon = skill.icon;
-            return (
-              <div 
-                key={index}
-                className="glass-card p-8 md:p-10 text-center group hover:-translate-y-2"
-              >
-                <div className="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-accent/10 dark:bg-[#31C48D]/10 text-accent dark:text-[#31C48D] mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
-                  <Icon size={40} />
-                </div>
-                <h3 className="text-2xl font-heading font-bold text-text-primary dark:text-[#E5FAEF] mb-4 relative pb-4 after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-12 after:h-0.5 after:bg-accent dark:after:bg-[#31C48D]">
-                  {skill.title}
-                </h3>
-                <p className="text-text-secondary dark:text-[#94A3B8] text-base">
-                  {skill.description}
-                </p>
-              </div>
-            );
-          })}
+          {skillCategories.map((cat, idx) => (
+            <div key={idx} className="glass-card p-6 md:p-8 group hover:-translate-y-1 transition-all duration-300">
+              <h3 className="text-2xl font-heading font-bold text-text-primary dark:text-[#E5FAEF] mb-6 pb-3 border-b border-border-light dark:border-[#2A3A2F]">
+                {cat.title}
+              </h3>
+              <ul className="space-y-3">
+                {cat.items.map((tech, i) => {
+                  const Icon = tech.icon;
+                  return (
+                    <li key={i} className="flex items-center gap-3 text-text-secondary dark:text-[#94A3B8] group-hover:text-text-primary dark:group-hover:text-[#E5FAEF] transition-colors">
+                      {Icon ? <Icon className="text-xl text-accent dark:text-[#31C48D]" /> : <span className="w-5 h-0.5 bg-accent dark:bg-[#31C48D] rounded-full" />}
+                      <span className="text-base font-medium">{tech.name}</span>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+          ))}
         </div>
       </div>
     </section>
