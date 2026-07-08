@@ -123,6 +123,44 @@ const App = () => {
       image: "/img/figueroa.jpeg",
       video: "/video/figueroa.mp4",
       featured: false
+    },
+    {
+      id: 8,
+      title: { es: "Decision Lab — Plataforma de Decision Analytics", en: "Decision Lab — Decision Analytics Platform" },
+      description: {
+        es: "SPA + API para registrar, analizar y visualizar decisiones personales con gráficos dinámicos.",
+        en: "SPA + API to log, analyze and visualize personal decisions with dynamic charts."
+      },
+      detailedDescription: {
+        es: "Aplicación integral con frontend reactivo en Vue 3 (Pinia, Chart.js) y backend en Node.js (Express, PostgreSQL, Knex.js). Autenticación JWT, validación con Zod y documentación Swagger.",
+        en: "Full-stack app with reactive Vue 3 frontend (Pinia, Chart.js) and Node.js backend (Express, PostgreSQL, Knex.js). JWT auth, Zod validation, and Swagger docs."
+      },
+      features: ['auth', 'dashboard', 'api', 'database'],
+      technologies: ["Vue 3", "Pinia", "Chart.js", "Tailwind CSS", "Node.js", "Express", "PostgreSQL", "Knex.js", "JWT", "Zod", "Swagger"],
+      github: "https://github.com/Sannlehnert/decision-analytics-frontend",
+      demo: "https://decision-lab-self.vercel.app/",
+      image: "./img/desicionlab.jpeg",
+      video: "/video/decisionlabb.mp4",
+      featured: false
+    },
+    {
+      id: 9,
+      title: { es: "RutaBase — Calculadora Inteligente de Envíos", en: "RutaBase — Smart Shipping Calculator" },
+      description: {
+        es: "Herramienta web para revendedores: cálculo de costos logísticos con parámetros personalizables.",
+        en: "Web tool for resellers: shipping cost calculator with customizable parameters."
+      },
+      detailedDescription: {
+        es: "Calculadora profesional de envíos que permite ajustar combustible, tiempo y condiciones de viaje para generar presupuestos precisos. Persistencia en localStorage para uso móvil en campo. Construida con React, TypeScript, React Hook Form y Zod.",
+        en: "Professional shipping calculator that lets you adjust fuel, time and travel conditions to generate accurate estimates. LocalStorage persistence for field mobile use. Built with React, TypeScript, React Hook Form and Zod."
+      },
+      features: ['smartCalc', 'localPersistence', 'responsive'],
+      technologies: ["React", "TypeScript", "Vite", "Tailwind CSS", "React Hook Form", "Zod", "Lucide React"],
+      github: "https://github.com/Sannlehnert/calculadora-envios",
+      demo: "https://rutabase.netlify.app/",
+      image: "/img/rutabase.jpg",
+      video: "/video/rutabase.mp4",
+      featured: false
     }
   ];
 

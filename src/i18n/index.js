@@ -21,10 +21,10 @@ export const translations = {
     },
     about: {
       title: 'Sobre mí',
-      intro: 'Tengo 19 años y soy desarrollador Full Stack, actualmente estudiando Desarrollo de Software en el Instituto Técnico Superior de Cipolletti.',
+      intro: 'Tengo 19 años y soy desarrollador Full Stack en formación, actualmente estudiando Desarrollo de Software en el Instituto Técnico Superior de Cipolletti.',
       stack: 'Trabajo principalmente con React, Node.js y MySQL, desarrollando aplicaciones web enfocadas en gestión de usuarios, autenticación y administración de datos.',
       projects: 'Entre mis proyectos se encuentran plataformas para gimnasios y sistemas con login y control financiero.',
-      future: 'Me interesa seguir creciendo en desarrollo y arquitectura de software, construyendo proyectos reales y mejorando constantemente mis habilidades técnicas.',
+      future: 'Me interesa seguir creciendo en desarrollo backend y arquitectura de software, construyendo proyectos reales y mejorando constantemente mis habilidades técnicas.',
       highlights: {
         age: '19 años',
         stack: 'React, Node.js, MySQL',
@@ -51,7 +51,9 @@ export const translations = {
         realtime: 'Actualizaciones en tiempo real',
         responsive: 'Diseño responsivo',
         api: 'APIs REST',
-        database: 'Base de datos MySQL'
+        database: 'Base de datos MySQL',
+        smartCalc: 'Cálculo inteligente',
+        localPersistence: 'Persistencia local'
       }
     },
     contact: {
@@ -98,10 +100,10 @@ export const translations = {
     },
     about: {
       title: 'About me',
-      intro: "I'm a 19-year-old Full Stack developer, currently studying Software Development at Instituto Técnico Superior de Cipolletti.",
+      intro: "I'm a 19-year-old Full Stack developer in training, currently studying Software Development at Instituto Técnico Superior de Cipolletti.",
       stack: 'I work mainly with React, Node.js and MySQL, building web applications focused on user management, authentication and data administration.',
       projects: 'My projects include gym management platforms and systems with login and financial control.',
-      future: 'I’m interested in growing in development and software architecture, building real projects and constantly improving my technical skills.',
+      future: 'I’m interested in growing in backend development and software architecture, building real projects and constantly improving my technical skills.',
       highlights: {
         age: '19 years',
         stack: 'React, Node.js, MySQL',
@@ -128,7 +130,9 @@ export const translations = {
         realtime: 'Real-time updates',
         responsive: 'Responsive design',
         api: 'REST APIs',
-        database: 'MySQL database'
+        database: 'MySQL database',
+        smartCalc: 'Smart calculation',
+        localPersistence: 'Local persistence'
       }
     },
     contact: {
